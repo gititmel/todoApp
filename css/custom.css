@@ -1,0 +1,28 @@
+body{
+
+	background 		: orange;
+
+}
+
+#taskInput{
+	position 	: fixed;
+	top 		: 40%;
+	left 		: 25%;
+	width 		: 40vw;
+	min-width 	: 100px; 
+}
+
+#actionBtn{
+	position 	: fixed;
+	top 		: 46%;
+	left 		: 25%;
+	min-width 	: 80px; 
+}
+
+#taskList{
+	list-style: none;
+}
+
+#taskList li{	
+	right 		: 25%;
+}

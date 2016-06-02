@@ -4,7 +4,7 @@ body{
 
 }
 
-#taskInput{
+/*#taskInput{
 	position 	: fixed;
 	top 		: 40%;
 	left 		: 25%;
@@ -17,12 +17,39 @@ body{
 	top 		: 46%;
 	left 		: 25%;
 	min-width 	: 80px; 
-}
+}*/
 
 #taskList{
-	list-style: none;
+	list-style : none;
+	padding : 0px;
 }
 
 #taskList li{	
 	right 		: 25%;
+	font-size 	: 12pt;
+	letter-spacing: 2px;
+}
+
+#taskList li:hover{
+	background 	: black;
+	color 		: orange;
+}
+
+.tasksTable{
+	width 		: 100%;
+	/*border 		: solid 1px black;*/
+}
+
+.tasksTable td{
+/*	border 		: solid 1px black;	
+*/}
+
+.taskActions{
+	text-align  : center;
+	width 		: 10%;
+}
+
+
+.taskActions span:hover{
+	cursor 		: pointer;
 }

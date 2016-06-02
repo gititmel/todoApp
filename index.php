@@ -4,7 +4,7 @@
 
 //prepares SQL statment to get records from db
 
-	$sql = "SELECT * FROM todotasks";
+	$sql = "SELECT * FROM todotasks ORDER BY taskID DESC";
 	
 	//executes SQL command
 	$rec = $conn->query( $sql );
@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="css/normalize.css"/>
 	<link rel="stylesheet" href="css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 </head>
 <body>
 
@@ -31,8 +32,10 @@
 		<div class="col-md-10">
 			<form id="todoForm" action="processData.php" method="post"> <!--sends form to DB-->
 				<input type="text" class="form-control" placeholder="Text input"  id="taskInput" name="taskInput"> <!--name used so PHP know what it's grabbing --> 
-				<button type="button" class="btn btn-default" id="actionBtn">BUTT ON</button>
+				<input type="hidden" value="insert" name="actionType">
+				<button type="button" class="btn btn-default" id="actionBtn">submit</button>
 			</form>
+
 		</div>
 		<div class="col-md-1"></div>
 	</div>
@@ -42,7 +45,18 @@
 					<?php
 						for($i = 0; $i < $num; $i++){ 
 							$row = mysqli_fetch_array($rec);
-							echo "<li>".$row['taskName']."</li>";
+							echo "<li id='".$row['taskID']."'>";
+							echo "<table class='tasksTable'><tr>";
+							echo "<td>";
+							echo $row['taskName'];
+							echo "</td>";
+							echo "<td class='taskActions'>";
+							echo "<span class='fa fa-check'></span>";
+							echo "<span class='fa fa-trash'></span>";
+							echo "</td>";
+							echo "</tr></table>";
+							echo "</li>";
+
 						}
 
 					?>
